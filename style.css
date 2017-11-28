@@ -1,0 +1,39 @@
+body {
+  font-size: 30px;
+  font-family: Arial;
+  text-align: center;
+  background-color: #425cbb;
+  color: white;
+  margin: 0;
+}
+
+.levels {
+  margin-top: 10px;
+  font-size: 0.6em;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  height: 80vh;
+}
+
+.container > div {
+  flex-grow: 0;
+} 
+.question, .capital{
+  min-height: 100px;
+}
+
+.button {
+  background-color: white;
+  color: #425cbb;
+  font-size: 0.8em;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 5px;
+}
