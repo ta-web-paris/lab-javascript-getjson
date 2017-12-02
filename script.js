@@ -1,10 +1,6 @@
-var questions;
-var curQuestion;
-var levels = [
-  'level01.json',
-  'level02.json',
-  'level03.json'
-];
+var levels = Object.keys(data); // = ["Level 01", "Level 02", "Level 03"] 
+var questions; // Could be = [ {"capital": "Amsterdam", "country": "Netherlands"}, {"capital": "Athens", "country": "Greece"} ]
+var curQuestion; // Could be = {"capital": "Amsterdam", "country": "Netherlands"}
 
 $(document).ready(function() {
   loadLevel(levels[0]);
@@ -12,19 +8,18 @@ $(document).ready(function() {
     $('.levels').append('<div class="button" data="'+levels[i]+'">'+levels[i]+'</div>');
   }
   $('.levels .button').click(function() {
+    console.log("Click", $(this).attr('data'))
     loadLevel($(this).attr('data'));
   })
 })
 
-function loadLevel(jsonFilename) {
-  console.log("loadLevel", jsonFilename)
-  $.getJSON('data/'+jsonFilename, function(data) {
-    console.log(data)
-    questions = data;
-    displayRandomQuestion();
-  });
+// Takes into parameter a key (ex: "Level 01"), set questions to a list of questions
+function loadLevel(level) {
+  questions = data[level];
+  displayRandomQuestion();
 }
 
+// Select a random "curQuestion" in "questions" and update the DOM to display it
 function displayRandomQuestion() {
   if (questions.length === 0)
     return;
@@ -38,6 +33,7 @@ function displayRandomQuestion() {
   })
 }
 
+// Change to DOM to display the answer that is in "curQuestion"
 function displayAnswer() {
   $('.capital').text(curQuestion.capital);
   $('.next-step').text("Next question");

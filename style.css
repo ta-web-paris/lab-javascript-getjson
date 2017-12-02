@@ -8,7 +8,11 @@ body {
 }
 
 .levels {
-  margin-top: 10px;
+  height: 0px;
+}
+
+.levels .button {
+  margin-top: 20px;
   font-size: 0.6em;
 }
 
@@ -16,8 +20,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items: center; */
-  height: 80vh;
+  height: 95vh;
 }
 
 .container > div {
